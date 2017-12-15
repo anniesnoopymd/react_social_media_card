@@ -30,7 +30,7 @@ var person = {
     render (){
       return(
          <div className="photo">
-           <img width="100%" src="https://avatars2.githubusercontent.com/u/22999436?s=400&u=70a8f1ade1c99998d172deff59ac8d20d33fc35d&v=4" alt="Photo" />
+           <img width="100%" src={this.props.photo} alt="Photo" />
          </div>
       )
     }
@@ -40,10 +40,10 @@ var person = {
     render (){
       return(
         <div className="bio">
-          <h1 className="name">Ya-Yun Tsai</h1>
-          <h2 className="location">Taichung, Taiwan</h2>
+          <h1 className="name">{this.props.name}</h1>
+          <h2 className="location">{this.props.location}</h2>
           <div className="occupation">
-            <p>Front End Developer</p>
+            <p>{this.props.occupation}</p>
           </div>
         </div>
       )
@@ -65,16 +65,16 @@ var person = {
 
 
   class Card extends React.Component{
-  render (){
-    return(
-       <div className="card">
-          <Photo />
-          <Bio />
-          <Updates />
-       </div>
+    render (){
+      return(
+         <div className="card">
+            <Photo photo={"images/me.png"}/>
+            <Bio name={"Annie Tsai"} location={"New York"} occupation={"Back End Developer"}/>
+            <Updates />
+         </div>
 
-    )
-  }
+      )
+    }
   }
 
   ReactDOM.render(<Card />, document.getElementById("app"));

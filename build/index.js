@@ -46,7 +46,7 @@ var Photo = function (_React$Component) {
       return React.createElement(
         'div',
         { className: 'photo' },
-        React.createElement('img', { width: '100%', src: 'https://avatars2.githubusercontent.com/u/22999436?s=400&u=70a8f1ade1c99998d172deff59ac8d20d33fc35d&v=4', alt: 'Photo' })
+        React.createElement('img', { width: '100%', src: this.props.photo, alt: 'Photo' })
       );
     }
   }]);
@@ -72,12 +72,12 @@ var Bio = function (_React$Component2) {
         React.createElement(
           'h1',
           { className: 'name' },
-          'Ya-Yun Tsai'
+          this.props.name
         ),
         React.createElement(
           'h2',
           { className: 'location' },
-          'Taichung, Taiwan'
+          this.props.location
         ),
         React.createElement(
           'div',
@@ -85,7 +85,7 @@ var Bio = function (_React$Component2) {
           React.createElement(
             'p',
             null,
-            'Front End Developer'
+            this.props.occupation
           )
         )
       );
@@ -146,8 +146,8 @@ var Card = function (_React$Component4) {
       return React.createElement(
         'div',
         { className: 'card' },
-        React.createElement(Photo, null),
-        React.createElement(Bio, null),
+        React.createElement(Photo, { photo: "images/me.png" }),
+        React.createElement(Bio, { name: "Annie Tsai", location: "New York", occupation: "Back End Developer" }),
         React.createElement(Updates, null)
       );
     }
