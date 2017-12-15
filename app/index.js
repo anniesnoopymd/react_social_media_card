@@ -1,30 +1,30 @@
 var person = {
   name: 'Ya-Yun Tsai',
-  location: 'Brooklyn, New York',
+  location: 'Taichung, Taiwan',
   occupation: {
-  title: 'Protecting Freedom',
-  employer: '@onemonthedu'
+    title: 'Marketing Intern',
+    employer: '@voicetube'
   },
-  photo: './images/chris-merica.png',
+  photo: './images/me.png',
   updates: [
-  {
-   platform: 'twitter',
-   status: 'I\'m happy, hope you\'re happy too!'
-  },
-  {
-   platform: 'twitter',
-   status: 'The better the singer\'s voice, the harder it is to hear what they\'re saying'
-  },
-  {
-   platform: 'twitter',
-   status: 'Fear makes the wolf look bigger'
-  },
-  {
-   platform: 'facebook',
-   status: 'If you\’re working on something that you think is going to get accomplished in this lifetime then you’re not thinking big enough'
-  }
+    {
+     platform: 'twitter',
+     status: 'I\'m happy, hope you\'re happy too!'
+    },
+    {
+     platform: 'twitter',
+     status: 'The better the singer\'s voice, the harder it is to hear what they\'re saying'
+    },
+    {
+     platform: 'twitter',
+     status: 'Fear makes the wolf look bigger'
+    },
+    {
+     platform: 'facebook',
+     status: 'If you\’re working on something that you think is going to get accomplished in this lifetime then you’re not thinking big enough'
+    }
   ]
-  }
+}
 
   class Photo extends React.Component{
     render (){
@@ -68,8 +68,8 @@ var person = {
     render (){
       return(
          <div className="card">
-            <Photo photo={"images/me.png"}/>
-            <Bio name={"Annie Tsai"} location={"New York"} occupation={"Back End Developer"}/>
+            <Photo photo={person.photo}/>
+            <Bio name={person.name} location={person.location} occupation={person.occupation} />
             <Updates />
          </div>
 
