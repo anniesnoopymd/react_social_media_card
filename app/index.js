@@ -13,11 +13,11 @@ var person = {
     },
     {
      platform: 'twitter',
-     status: 'The better the singer\'s voice, the harder it is to hear what they\'re saying'
+     status: 'All about learning is just trying to become a better version of ourselves.'
     },
     {
      platform: 'twitter',
-     status: 'Fear makes the wolf look bigger'
+     status: 'Feel excited to join this competition!!!!!'
     },
     {
      platform: 'facebook',
@@ -43,7 +43,7 @@ var person = {
           <h1 className="name">{this.props.name}</h1>
           <h2 className="location">{this.props.location}</h2>
           <div className="occupation">
-            <p>{this.props.occupation}</p>
+            <p>{this.props.occupation.title} {this.props.occupation.employer}</p>
           </div>
         </div>
       )
@@ -51,12 +51,22 @@ var person = {
   }
 
   class Updates extends React.Component{
+
+    updates(){
+        return this.props.updates.map(function(updateInfo, index){
+            return(
+              <li className={"update " + updateInfo.platform} key={index}>
+                  {updateInfo.status}
+              </li>
+            )
+        });
+    }
+
     render (){
       return(
         <div className="updates">
            <ul>
-             <li className="update">Updates</li>
-             <li className="update">Updates</li>
+                {this.updates()}
            </ul>
         </div>
       )
@@ -68,9 +78,9 @@ var person = {
     render (){
       return(
          <div className="card">
-            <Photo photo={person.photo}/>
+            <Photo photo={person.photo} />
             <Bio name={person.name} location={person.location} occupation={person.occupation} />
-            <Updates />
+            <Updates updates={person.updates} />
          </div>
 
       )

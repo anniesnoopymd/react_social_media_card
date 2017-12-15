@@ -10,21 +10,21 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var person = {
   name: 'Ya-Yun Tsai',
-  location: 'Brooklyn, New York',
+  location: 'Taichung, Taiwan',
   occupation: {
-    title: 'Protecting Freedom',
-    employer: '@onemonthedu'
+    title: 'Marketing Intern',
+    employer: '@voicetube'
   },
-  photo: './images/chris-merica.png',
+  photo: './images/me.png',
   updates: [{
     platform: 'twitter',
     status: 'I\'m happy, hope you\'re happy too!'
   }, {
     platform: 'twitter',
-    status: 'The better the singer\'s voice, the harder it is to hear what they\'re saying'
+    status: 'All about learning is just trying to become a better version of ourselves.'
   }, {
     platform: 'twitter',
-    status: 'Fear makes the wolf look bigger'
+    status: 'Feel excited to join this competition!!!!!'
   }, {
     platform: 'facebook',
     status: 'If you\’re working on something that you think is going to get accomplished in this lifetime then you’re not thinking big enough'
@@ -85,7 +85,9 @@ var Bio = function (_React$Component2) {
           React.createElement(
             'p',
             null,
-            this.props.occupation
+            this.props.occupation.title,
+            ' ',
+            this.props.occupation.employer
           )
         )
       );
@@ -105,6 +107,17 @@ var Updates = function (_React$Component3) {
   }
 
   _createClass(Updates, [{
+    key: 'updates',
+    value: function updates() {
+      return this.props.updates.map(function (updateInfo, index) {
+        return React.createElement(
+          'li',
+          { className: "update " + updateInfo.platform, key: index },
+          updateInfo.status
+        );
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
@@ -113,16 +126,7 @@ var Updates = function (_React$Component3) {
         React.createElement(
           'ul',
           null,
-          React.createElement(
-            'li',
-            { className: 'update' },
-            'Updates'
-          ),
-          React.createElement(
-            'li',
-            { className: 'update' },
-            'Updates'
-          )
+          this.updates()
         )
       );
     }
@@ -146,9 +150,9 @@ var Card = function (_React$Component4) {
       return React.createElement(
         'div',
         { className: 'card' },
-        React.createElement(Photo, { photo: "images/me.png" }),
-        React.createElement(Bio, { name: "Annie Tsai", location: "New York", occupation: "Back End Developer" }),
-        React.createElement(Updates, null)
+        React.createElement(Photo, { photo: person.photo }),
+        React.createElement(Bio, { name: person.name, location: person.location, occupation: person.occupation }),
+        React.createElement(Updates, { updates: person.updates })
       );
     }
   }]);
